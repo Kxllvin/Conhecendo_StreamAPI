@@ -2,10 +2,10 @@ package stream_api;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.Random;
-import java.util.stream.Collectors;
 
-public class Desafio6 {
+public class Desafio7 {
     public static void main(String[] args) {
         List<Integer> numeros = new  ArrayList<>();
         Random random = new Random();
@@ -17,11 +17,9 @@ public class Desafio6 {
 
         System.out.println("Conteúdo do Array: " + numeros);
 
-        List<Integer> numerosMaiorQDez = numeros.stream()
-            .filter(numero -> numero >= 10)
-            .collect(Collectors.toList());
-        
-        System.out.println("Números maiores ou = a 10: " + numerosMaiorQDez);
-    }
-}   
+        Optional<Integer> maiorNumero = numeros.stream().max(Integer::compareTo);
 
+        maiorNumero.ifPresentOrElse(
+            numero -> System.out.println("Maior número: " + numero), () -> System.out.println("A lista está vazia."));
+    }
+}
