@@ -3,7 +3,6 @@ package stream_api;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.function.BinaryOperator;
 
 public class Desafio2 {
     public static void main(String[] args) {
@@ -16,8 +15,6 @@ public class Desafio2 {
         }
 
         System.out.println("Conteúdo do Array: " + numeros);
-
-        BinaryOperator<Integer> somar = Integer::sum;
 
         int resultado = numeros.stream()
             .filter(n -> n % 2 == 0)
